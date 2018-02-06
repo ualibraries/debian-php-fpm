@@ -18,7 +18,7 @@ RUN \
 export DEBIAN_FRONTEND=noninteractive && \
 export DEBCONF_NONINTERACTIVE_SEEN=true && \
 apt-get update && \
-apt-get install -y procps apt-utils less nano emacs-nox curl netcat-openbsd mariadb-client ssmtp php-fpm php-mysql && \
+apt-get install -y procps apt-utils less nano emacs-nox curl netcat-openbsd mariadb-client ssmtp php-fpm php-mysql php-mbstring && \
 apt-get clean
 
 # Enable directory colors:
