@@ -1,4 +1,4 @@
-#
+>#
 # Debian9 (stretch) + shibboleth 2.6
 #
 # Ideas were taken from https://hub.docker.com/r/josefcs/debian-apache/~/dockerfile/
@@ -30,11 +30,13 @@ sed -i "s/^# alias l/alias l/g" /root/.bashrc
 # Fix error that occurs with directory colors enabled
 ENV SHELL /bin/bash
 
-# Make sure _shibd:_shibd permissions on directories we might tmp mount
+# Make sure correct permissions on directories we might tmp mount
 RUN \
+mkdir -p /run/php && \
 mkdir -p /var/log/php-fpm && \
 touch /var/log/php-fpm/php7.0-fpm.log && \
-chown -R www-data.www-data /var/log/php-fpm
+chown -R www-data.www-data /var/log/php-fpm && \
+chown -R www-data.www-data /run/php \
 
 #COPY fpm/conf.d/site.conf /etc/php/7.0/fpm/conf.d
 COPY fpm/php-fpm.conf /etc/php/7.0/fpm
@@ -42,7 +44,7 @@ COPY fpm/pool.d/www.conf /etc/php/7.0/fpm/pool.d
 
 EXPOSE 9000
 
-VOLUME [ "/etc/php", "/var/log/php-fpm" ]
+VOLUME [ "/etc/php", "/var/log/php-fpm", "/run/php" ]
 
 # Autostart service
 CMD ["/usr/sbin/php-fpm7.0", "-F", "--fpm-config", "/etc/php/7.0/fpm/php-fpm.conf" ]
