@@ -5,7 +5,7 @@ NETWORK=host
 
 TAG=${4:-latest}
 CONTAINER=${3:-fpm-filsender-test}
-REPOSITORY=${2:-fpm-filesender}
+REPOSITORY=${2:-debian-php-fpm}
 ACTION=${1}
 DAEMONIZE=-d
 
