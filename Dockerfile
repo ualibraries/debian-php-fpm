@@ -33,6 +33,7 @@ ENV SHELL /bin/bash
 # Make sure correct permissions on directories we might tmp mount
 RUN \
 mkdir -p /run/php && \
+chmod 775 /run/php && \
 mkdir -p /var/log/php-fpm && \
 touch /var/log/php-fpm/php7.0-fpm.log && \
 chown -R www-data.www-data /var/log/php-fpm && \
