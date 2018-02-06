@@ -1,4 +1,4 @@
->#
+#
 # Debian9 (stretch) + shibboleth 2.6
 #
 # Ideas were taken from https://hub.docker.com/r/josefcs/debian-apache/~/dockerfile/
