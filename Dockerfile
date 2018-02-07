@@ -18,7 +18,7 @@ RUN \
 export DEBIAN_FRONTEND=noninteractive && \
 export DEBCONF_NONINTERACTIVE_SEEN=true && \
 apt-get update && \
-apt-get install -y procps apt-utils less nano emacs-nox curl netcat-openbsd mariadb-client ssmtp php-fpm php-mysql php-mbstring php7.0-opcache php-mcrypt && \
+apt-get install -y apt-utils procps less nano curl netcat-openbsd net-tools mariadb-client ssmtp php-fpm php-mysql php-mbstring php-opcache php-mcrypt && \
 apt-get clean
 
 # Enable directory colors:
@@ -40,9 +40,8 @@ touch /var/log/php-fpm/php7.0-fpm.log && \
 chown -R www-data.www-data /var/log/php-fpm && \
 chown -R www-data.www-data /run/php
 
-#COPY fpm/conf.d/site.conf /etc/php/7.0/fpm/conf.d
-COPY fpm/php-fpm.conf /etc/php/7.0/fpm
-COPY fpm/pool.d/www.conf /etc/php/7.0/fpm/pool.d
+COPY fpm/php* /etc/php/7.0/fpm/
+COPY fpm/pool.d/ /etc/php/7.0/fpm/pool.d/
 
 EXPOSE 9000
 
