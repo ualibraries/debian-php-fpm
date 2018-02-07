@@ -1,5 +1,5 @@
 #
-# Debian9 (stretch) + shibboleth 2.6
+# Debian9 (stretch) + php-fpm 7.0
 #
 # Ideas were taken from https://hub.docker.com/r/josefcs/debian-apache/~/dockerfile/
 #
