@@ -43,7 +43,7 @@ chown -R www-data.www-data /run/php
 COPY fpm/php* /etc/php/7.0/fpm/
 COPY fpm/pool.d/ /etc/php/7.0/fpm/pool.d/
 
-#EXPOSE 9000
+EXPOSE 9000
 
 VOLUME [ "/var/log/php-fpm", "/run/php" ]
 
