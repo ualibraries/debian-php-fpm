@@ -45,7 +45,7 @@ COPY fpm/pool.d/ /etc/php/7.0/fpm/pool.d/
 
 EXPOSE 9000
 
-VOLUME [ "/etc/php", "/var/log/php-fpm", "/run/php" ]
+VOLUME [ "/var/log/php-fpm", "/run/php" ]
 
 # Autostart service
 CMD ["/usr/sbin/php-fpm7.0", "-F", "--fpm-config", "/etc/php/7.0/fpm/php-fpm.conf" ]
